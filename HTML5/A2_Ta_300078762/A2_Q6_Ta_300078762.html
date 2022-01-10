@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Question 6 - Script palindrome class </title>
+    <script>
+        var firstNumber, firstDigit, count, bool;
+        bool = false;
+        count = 1;
+        firstDigit = null;
+
+        //only allow user to enter integers and not start with 0.
+        do {
+            if (count > 1 && firstDigit == "0") {
+                window.alert("First digit cannot start with 0, please enter a new integer")
+            }
+            else if (count > 1 && isNaN(firstNumber)) {
+                window.alert("Please enter only integer, no alphabet characters are allowed")
+            } else if (count > 1 && (parseInt(firstNumber) > 99999 || parseInt(firstNumber) < 10000)) {
+                window.alert("Please enter an integer between 10,000 and 99,999");
+            }
+
+            firstNumber = window.prompt("Please enter the first integer");
+            firstDigit = firstNumber[0];
+
+            count++;
+        } while (isNaN(firstNumber) || (firstDigit.localeCompare("0") == 0) || parseInt(firstNumber) > 99999 || parseInt(firstNumber) < 10000);
+
+        firstNumber = parseInt(firstNumber);
+        firstNumber = firstNumber.toString();
+        for(var i = 0, x = firstNumber.length -1; i < x; i++, z--){
+            //if they are equal
+            if (firstNumber[i].localeCompare(firstNumber[x]) == 0){
+                document.writeln("The number " + firstNumber +" is a palindrome");
+            }else{
+                document.writeln("The number " + firstNumber + " is NOT a palindrome");
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+</body>
+
+</html>

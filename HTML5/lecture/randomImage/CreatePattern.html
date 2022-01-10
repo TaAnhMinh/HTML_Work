@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Pattern</title>
+    <script>
+        var image = new Image();
+        image.src = "Flag_Vice_Admiral_of_Red_1805_to_1864.png";
+        image.width = 10;
+        image.height =10;
+        function start() {
+            var canvas = document.getElementById("pattern");
+            var context = canvas.getContext("2d");
+            var pattern = context.createPattern(image, "repeat-x");
+            context.rect(10,10,10000,10000);
+            context.fillStyle = pattern;
+            context.fill();
+        }
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+<body>
+    <canvas id="pattern" width="1000" height="1000" style = "border: 1px solid black;"></canvas>
+</body>
+
+</html>

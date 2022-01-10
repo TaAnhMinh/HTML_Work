@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Question 5 - Script 1st multiple of 2nd class </title>
+    <script>
+
+        var firstNumber, secondNumber, count;
+        count = 1;
+
+        //only allow user to enter integers.
+        do {
+            if (count > 1) {
+                window.alert("Please only enter integers for both number, no alphabet characters are allowed ")
+            }
+
+            firstNumber = window.prompt("Please enter the first integer\nIf no input, 0 will be used as input");
+            secondNumber = window.prompt("Please enter second number\nIf no input, 0 will be used as input");
+
+            //remove space in firstnumber and second number
+            firstNumber = firstNumber.replace(/\s/g, '');
+            secondNumber = secondNumber.replace(/\s/g, '');
+
+            count++;
+        } while (isNaN(firstNumber) || isNaN(secondNumber));
+        //convert to int
+        firstNumber = parseInt(firstNumber);
+        secondNumber = parseInt(secondNumber);
+
+        if (firstNumber % secondNumber == 0) {
+            document.write("<button> What </button>");
+        } else {
+            document.write("<text>First number is a NOT multiple of second</text>");
+        }
+
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

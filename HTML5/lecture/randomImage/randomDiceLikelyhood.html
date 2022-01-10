@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Dice images</title>
+    <style type="text/css">
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        table {
+            width: 200px;
+            border-collapse: collapse;
+            background-color: lightblue;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        tr{
+            color: yellow;
+        }
+
+        th {
+            text-align: left;
+            color: white;
+            background-color: darkblue;
+        }
+
+        img {
+            margin-right: 10px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        var fre1 = 0,fre2 = 0, fre3 = 0, fre4 = 0, fre5 = 0, fre6 = 0, total = 0;
+
+        function start() {
+            var button = document.getElementById("rollButton");
+            button.addEventListener("click", rollImage, false);
+        }
+
+        function rollImage() {
+            var face;
+            for (var i = 1; i <= 12; i++) {
+                face = Math.floor(1 + Math.random() * 6);
+                tallyRolls(face);
+                setImage(i, face);
+                total++;
+            }
+            updateFreTble();
+        }
+
+        function tallyRolls(face) {
+            switch (face) {
+                case 1:
+                    fre1++;
+                    break;
+                case 2:
+                    fre2++;
+                    break;
+                case 3:
+                    fre3++;
+                    break;
+                case 4:
+                    fre4++;
+                    break;
+                case 5:
+                    fre5++;
+                    break;
+                case 6:
+                    fre6++;
+                    break;
+            }
+        }
+
+        function setImage(number, face) {
+            var imgage = document.getElementById("im" + number);
+            imgage.setAttribute("src", "die" + face + ".png");
+            imgage.setAttribute("alt", "die with " + face + "spots");
+        }
+
+        function updateFreTble() {
+            var tableDiv = document.getElementById("freTableDiv");
+
+            tableDiv.innerHTML = "<table>" +
+                "<caption>Die Rolling Fre</caption>" +
+                "<thead><th>Face</th><th>Frequency</th>" +
+                "<th>Percent</th> </thead>" +
+                "<tbody><tr><td>1</td><td>" + fre1 + "</td><td>" + formatPercent(fre1 / total) + "</td></tr>" +
+                "<tr><td>2</td><td>" + fre2 + "</td><td>" + formatPercent(fre2 / total) + "</td></tr>" +
+                "<tr><td>3</td><td>" + fre3 + "</td><td>" + formatPercent(fre3 / total) + "</td></tr>" +
+                "<tr><td>4</td><td>" + fre4 + "</td><td>" + formatPercent(fre4 / total) + "</td></tr>" +
+                "<tr><td>5</td><td>" + fre5 + "</td><td>" + formatPercent(fre5 / total) + "</td></tr>" +
+                "<tr><td>6</td><td>" + fre6 + "</td><td>" + formatPercent(fre6 / total) + "</td></tr> </tbody> </table>";
+
+        }
+
+        function formatPercent(value) {
+            value *= 100;
+            return value.toFixed(2);
+        }
+
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+<body>
+    <p>
+        <img id="im1" src="blank.png" alt="die 1 image">
+        <img id="im2" src="blank.png" alt="die 2 image">
+        <img id="im3" src="blank.png" alt="die 3 image">
+        <img id="im4" src="blank.png" alt="die 4 image">
+        <img id="im5" src="blank.png" alt="die 5 image">
+        <img id="im6" src="blank.png" alt="die 6 image">
+    </p>
+    <p>
+        <img id="im7" src="blank.png" alt="die 7 image">
+        <img id="im8" src="blank.png" alt="die 8 image">
+        <img id="im9" src="blank.png" alt="die 9 image">
+        <img id="im10" src="blank.png" alt="die 10 image">
+        <img id="im11" src="blank.png" alt="die 11 image">
+        <img id="im12" src="blank.png" alt="die 12 image">
+    </p>
+    <form action="#">
+        <input id="rollButton" type="button" value="Roll Dice">
+    </form>
+
+    <div id="freTableDiv"></div>
+</body>
+
+</html>

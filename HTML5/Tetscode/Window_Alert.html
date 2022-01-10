@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Window Alert</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        //rotate counter clockwise (0 to 180 degree) half a circle
+        context.arc(100,50,30,0,Math.PI,true);
+        context.fillStyle="red";
+        context.fill();
+    </script>
+</body>
+</html>

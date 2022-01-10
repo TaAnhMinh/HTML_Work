@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Skew</title>
+        <meta charset="utf-8">
+        <style type = "text/css">
+        .skew .textbox{
+            margin-left: 75px;
+            background: lightgreen;
+            height: 100px;
+            width:200px;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 250%;
+            border: 3px solid darkgreen;
+            border-radius: 15px;
+            -webkit-animation: skew 3s infinite linear;
+            -moz-animation: skew 3s infinite linear;
+            animation: skew 3s infinite linear;
+        }
+
+        @-webkit-keyframes skew{
+            from {-webkit-transform: skewX(0deg);}
+            25% {-webkit-transform: skew(45deg);}
+            50%{-webkit-transform: skew(0deg);}
+            75% {-webkit-transform: skew(-45deg);}
+            to {-webkit-transform: skew(0);}
+        }
+
+        @-moz-keyframes skew{
+            from {-webkit-transform: skewX(0deg);}
+            25% {-webkit-transform: skew(45deg);}
+            50% {-webkit-transform: skew(0deg);}
+            75% {-webkit-transform: skew(-45deg);}
+            to {-webkit-transform: skew(0);}
+        }
+
+        @keyframes skew{
+            from {-webkit-transform: skewX(0deg);}
+            25% {-webkit-transform: skew(45deg);}
+            50%{-webkit-transform: skew(0deg);}
+            75% {-webkit-transform: skew(-45deg);}
+            to {-webkit-transform: skew(0);}
+        }
+        </style>
+    </head>
+    <body>
+        <div class="box skew">
+            <div class = "textbox">Skewing Text</div>
+        </div>
+    </body>
+</html>

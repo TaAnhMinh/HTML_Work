@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Dice images</title>
+    <style type="text/css">
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        ul {
+            margin: 0;
+        }
+        img {width: 100px;
+        height: 100px;}
+    </style>
+    <script>
+        var image1, image2, image3, image4;
+        function start() {
+            var button = document.getElementById("rollButton");
+            button.addEventListener("click", rollImage, false);
+            image1 = document.getElementById("im1");
+            image2 = document.getElementById("im2");
+            image3 = document.getElementById("im3");
+            image4 = document.getElementById("im4");
+        }
+        function rollImage() {
+            setImage(image1);
+            setImage(image2);
+            setImage(image3);
+            setImage(image4);
+        }
+
+        function setImage(image) {
+            var imageVal = Math.floor(1 + Math.random() * 6);
+            image.setAttribute("src", "die" + imageVal + ".png");
+            image.setAttribute("alt", "die image with " + imageVal + "spots");
+
+
+        }
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <input id="rollButton" type="button" value="Roll Dice">
+    </form>
+    <ol>
+        <li> <img id="im1" src="blank.png" alt="die 1 image"></li>
+        <li> <img id="im2" src="blank.png" alt="die 2 image"></li>
+        <li> <img id="im3" src="blank.png" alt="die 3 image"></li>
+        <li> <img id="im4" src="blank.png" alt="die 4 image"></li>
+    </ol>
+</body>
+
+</html>

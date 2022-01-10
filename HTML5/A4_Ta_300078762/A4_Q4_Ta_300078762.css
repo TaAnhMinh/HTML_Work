@@ -1,0 +1,10 @@
+img{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+}

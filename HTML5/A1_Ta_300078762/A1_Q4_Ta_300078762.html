@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>University Feeback Portal</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Feedback Form</h1>
+
+    <form method = "POST" action = "https://deitel.com/" autocomplete="on">
+
+    <input type="hidden" name = "recipient" value="deitel@deitel.com">
+    <input type="hidden" name="subject" Value = "Feedback Form">
+
+        <!--Name and email address text fields-->
+        <p><label>Name:
+                <input name="Name" type="text" size="25" required>
+            </label></p>
+
+        <p><label>E-mail Address:
+                <input name="email" type="email" size="25" required>
+            </label></p>
+
+        <!--The checkboxes should include: campus, students, location, atmosphere, 
+        dorm rooms and sports.-->
+        <p>
+            <strong>Favorites</strong><br>
+
+            <label>Campus
+                <input name="thingsliked" type="checkbox" value="Campus"></label>
+
+            <label>Students
+                <input name="thingsliked" type="checkbox" value="Students"></label>
+
+            <label>Location
+                <input name="thingsliked" type="checkbox" value="Location"></label>
+
+            <label>Atmosphere
+                <input name="thingsliked" type="checkbox" value="Atmosphere"></label>
+
+            <label>Dorm rooms and sports
+                <input name="thingsliked" type="checkbox" value="Rooms"></label>
+        </p>
+
+        <!--radio buttons that ask the prospective students 
+        how they became interested in the university.-->
+        <p>
+            <strong>How you became interested in the university indicator</strong><br>
+            <input name="Interest" type="radio" value="Friends"> Friends
+            <input name="Interest" type="radio" value="Television"> Television
+            <input name="Interest" type="radio" value="Internet and other"> Internet and other
+        </p>
+
+        <!--Comment box-->
+        <p><label>Comments: <br>
+                <textarea name="comments" rows="4" cols="36"></textarea>
+            </label></p>
+
+        <!--2 Buttons: Submit and reset-->
+        <p>
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+        </p>
+    </form>
+</body>
+
+</html>

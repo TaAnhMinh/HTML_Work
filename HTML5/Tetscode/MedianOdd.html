@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function median(array) {
+
+            var sortedArray = array.slice();
+
+            //need to sort integers, regular sort may not sort correctly. 
+
+            sortedArray.sort(compareInts);
+
+            var median = sortedArray[Math.floor(sortedArray.length / 2)];
+
+            return median;
+
+        }
+
+        //function to sort integers
+
+        function compareInts(value1, value2) {
+
+            return parseInt(value1) - parseInt(value2);
+
+        }
+
+        function start(){
+            var a  = [1,3,5,10,4];
+            var b = median(a);
+            document.writeln("Median is" + b);
+            document.writeln("array is:");
+            for (var i in a){
+                document.write(a[i] + " ");''
+            }
+
+        }
+
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+</html>

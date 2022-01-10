@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Guess the number part 2</title>
+    <script>
+        var answer = parseInt(1 + Math.random() * 1000);
+        var count = 0;
+        function start() {
+            var submit = document.getElementById("submit");
+            submit.addEventListener("click", validate, false);
+        }
+        function validate() {
+            var guess = document.getElementById("guess").value;
+            var result = guess - answer;
+            if (isNaN(guess)) {
+                document.getElementById("result").innerHTML = "Wrong input! You should enter a number between 1 and 1000";
+            } else {
+                if (result > 0) {
+                    document.getElementById("result").innerHTML = "Too high. Try again";
+                } else if (result < 0) {
+                    document.getElementById("result").innerHTML = "Too low. Try again";
+                } else {
+                    if (count < 10) {
+                        document.getElementById("result").innerHTML = "Either you know the secret or you got lucky! Refresh to play again";
+                    } else if (count == 10) {
+                        document.getElementById("result").innerHTML = "Ahah! You know the secret! Refresh to play again";
+                    } else {
+                        document.getElementById("result").innerHTML = "You should be able to do better! Refresh to play again";
+                    }
+                }
+                count++;
+            }
+        }
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+<body>
+    <h1>Guess the number</h1>
+    <form action="#">
+        <p>Guess a number between 1 and 1000:
+            <input id="guess" type="text" placeholder="Enter your guess (in integer)">
+            <input id="submit" type="button" value="Submit">
+        </p>
+    </form>
+    <p id="result"></p>
+</body>
+
+</html>

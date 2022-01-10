@@ -1,0 +1,18 @@
+h1{
+    font-size: 30px;
+    color: red;
+}
+
+/* Question 2*/
+button{
+    border-radius: 5px;
+    border-color: black;
+    background:  aquamarine;
+    color: red;
+}
+button:hover{
+    border-radius:10px;
+    border-color: red;
+    background: yellow;
+    color: black;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Question 7 - Mail-order house </title>
+    <script>
+        function getOrders(sumList, quanList) {
+            var product = 0, price = 0;
+            var quantity = 0;
+            while (product != 6) {
+
+                do {
+                    product = window.prompt("Enter Product number (between 1 to 5)" + "and quantity sold. \nEnter 6 to exit");
+                    if (isNaN(product) || product > 7 || product < 0) {
+                        window.alert("Please enter only number from 1 to 6");
+                    }
+                } while (product > 7 || product < 0 || isNaN(product));
+
+                product = parseInt(product);
+
+                switch (product) {
+                    case 1:
+                        price = 2.98;
+                        do {
+                            if (quantity < 0) {
+                                window.alert("Quantity cannot be lower than 0, please enter again");
+                            }else if (isNaN(quantity)){
+                                window.alert("Please enter integer, no alphabet characters allow");
+                            }
+                            
+                            quantity = window.prompt("Enter Quantity for Product 1:");
+                            if (quantity >= 0) {
+                                quanList[0] = parseInt(quanList[0]) + parseInt(quantity);
+                            }
+                        } while (quantity < 0|| isNaN(quantity));
+                        sumList[0] += quantity * price;
+                        break;
+                    case 2:
+                        price = 4.5;
+                        do {
+                            if (quantity < 0) {
+                                window.alert("Quantity cannot be lower than 0, please enter again");
+                            }else if (isNaN(quantity)){
+                                window.alert("Please enter integer, no alphabet characters allow");
+                            }
+
+                            quantity = window.prompt("Enter Quantity for Product 2:");
+                            if (quantity >= 0) {
+                                quanList[1] = parseInt(quanList[1]) + parseInt(quantity);
+                            }
+                        } while (quantity < 0|| isNaN(quantity));
+                        sumList[1] += quantity * price;
+                        break;
+                    case 3:
+                        price = 9.98;
+                        do {
+                            if (quantity < 0) {
+                                window.alert("Quantity cannot be lower than 0, please enter again");
+                            }else if (isNaN(quantity)){
+                                window.alert("Please enter integer, no alphabet characters allow");
+                            }
+
+                            quantity = window.prompt("Enter Quantity for Product 3:");
+                            if (quantity >= 0) {
+                                quanList[2] += parseInt(quantity);
+                            }
+                        } while (quantity < 0|| isNaN(quantity));
+                        sumList[2] += quantity * price;
+                        break;
+                    case 4:
+                        price = 4.49;
+                        do {
+                            if (quantity < 0) {
+                                window.alert("Quantity cannot be lower than 0, please enter again");
+                            }else if (isNaN(quantity)){
+                                window.alert("Please enter integer, no alphabet characters allow");
+                            }
+
+                            quantity = window.prompt("Enter Quantity for Product 4:");
+                            if (quantity >= 0) {
+                                quanList[3] += parseInt(quantity);
+                            }
+                        } while (quantity < 0|| isNaN(quantity));
+                        sumList[3] += quantity * price;
+                        break;
+                    case 5:
+                        price = 6.87;
+                        do {
+                            if (quantity < 0) {
+                                window.alert("Quantity cannot be lower than 0, please enter again");
+                            } else if (isNaN(quantity)){
+                                window.alert("Please enter integer, no alphabet characters allow");
+                            }
+
+                            quantity = window.prompt("Enter Quantity for Product 5:");
+                            if (quantity >= 0) {
+                                quanList[4] += parseInt(quantity);
+                            }
+
+                        } while (quantity < 0 || isNaN(quantity));
+
+                        sumList[4] += quantity * price;
+                        break;
+                    case 6:
+                        sumList[5] = sumList[0] +sumList[1] +sumList[2] + sumList[3] + sumList[4];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return 5;
+        }
+
+        function createTable() {
+            var sumList = [0,0,0,0,0,0];
+            var quanList = [0,0,0,0,0];
+            var  count = getOrders(sumList, quanList);
+            var displayText = "<table cellspacing=\"3\"><tr><td>Product ID</td><td>Quantity</td><td>Cost</td><td></tr>";
+            for (var i = 0; i < count; i++) {
+                displayText += "<tr><td>" + (i+1) + "</td><td>" + parseInt(quanList[i]) + "</td><td>$" + parseFloat(sumList[i]).toFixed(2) + "</td><td></tr>";
+            }
+            displayText += "<tr><td>Total Cost</td><td>&nbsp;</td><td>$" + parseFloat(sumList[count]).toFixed(2) + "</td><td></tr></table>";
+            document.getElementById("content").innerHTML = displayText;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="content"></div>
+
+    <script>
+        createTable();
+    </script>
+
+</body>
+
+</html>
